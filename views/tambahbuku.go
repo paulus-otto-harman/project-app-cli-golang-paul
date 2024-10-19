@@ -21,9 +21,7 @@ loop:
 		buku.IsiJudul(fmt.Sprintf("%v", judul))
 		buku.IsiPenulis(fmt.Sprintf("%v", penulis))
 		buku.IsiIsbn(fmt.Sprintf("%v", isbn))
-		fmt.Println(buku)
-		coms.Input(map[string]interface{}{"label": "test"})
-		buku.Simpan()
+		buku.Tambah()
 
 		menuItem, err := coms.Input(map[string]interface{}{"type": "number", "label": "Tekan Enter untuk menambahkan lagi atau Masukkan [0] untuk Kembali Ke Menu Utama"})
 		fmt.Println(menuItem, err)

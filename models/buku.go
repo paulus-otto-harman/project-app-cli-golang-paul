@@ -33,7 +33,21 @@ func (buku *Buku) IsiIsbn(isbn string) string {
 	return buku.isbn
 }
 
-func (buku *Buku) Simpan() string {
+func (buku *Buku) Tambah() string {
 	DaftarBuku = append(DaftarBuku, *buku)
-	return "Berhasil Disimpan"
+	return "Buku Berhasil Ditambah"
+}
+
+func (buku *Buku) CariIsbn(isbn string) int {
+	for i, buku := range DaftarBuku {
+		if isbn == buku.isbn {
+			return i
+		}
+	}
+	return -1
+}
+
+func (buku *Buku) Hapus(index int) string {
+	DaftarBuku = append(DaftarBuku[:index], DaftarBuku[index+1:]...)
+	return "Buku Berhasil Dihapus"
 }

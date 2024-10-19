@@ -9,7 +9,7 @@ func TambahBuku() {
 }
 
 func HapusBuku() {
-
+	views.HapusBuku()
 }
 
 func TampilkanBuku() {
