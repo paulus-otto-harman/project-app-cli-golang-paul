@@ -25,7 +25,10 @@ func (d DaftarPenumpang) Render() {
 
 	// body
 	for _, penumpang := range models.DaftarPenumpang {
-		fmt.Printf("%s%-*s%s%-*s%s%-*s%s%-*s%s\n", "│ ", WidthNama, penumpang.Nama(), "│ ", WidthIdentitas, penumpang.Identitas(), "│ ", WidthTujuan, penumpang.Tujuan(), "│ ", WidthKelas, Kelas[penumpang.Kelas()-1], "│")
+		if penumpang.Kelas() > 0 {
+			fmt.Printf("%s%-*s%s%-*s%s%-*s%s%-*s%s\n", "│ ", WidthNama, penumpang.Nama(), "│ ", WidthIdentitas, penumpang.Identitas(), "│ ", WidthTujuan, penumpang.Tujuan(), "│ ", WidthKelas, Kelas[penumpang.Kelas()-1], "│")
+		}
+
 	}
 
 	// footer

@@ -19,7 +19,11 @@ loop:
 		nama, _ := components.Input(map[string]interface{}{"label": fmt.Sprintf("%-15s:", "Nama")})
 		identitas, _ := components.Input(map[string]interface{}{"label": fmt.Sprintf("%-15s:", "Identitas")})
 		tujuan, _ := components.Input(map[string]interface{}{"label": fmt.Sprintf("%-15s:", "Tujuan")})
-		gerbong, _ := components.Input(map[string]interface{}{"type": "number", "label": fmt.Sprintf("\n%s\n%s\n%s\n%-15s:", "Kelas (Pilih 1-3)", "[1]Ekonomi", "[2]Bisnis", "[3]Eksekutif")})
+
+		gerbong, err := components.Input(map[string]interface{}{"type": "number", "label": fmt.Sprintf("\n%s\n%s\n%s\n%-15s:", "Kelas (Pilih 1-3)", "[1]Ekonomi", "[2]Bisnis", "[3]Eksekutif")})
+		if err != nil {
+			panic(fmt.Sprintf("%s - %s", err, "Gerbong/Kelas Penumpang tidak valid"))
+		}
 
 		penumpang := models.Penumpang{}
 		penumpang.IsiNama(fmt.Sprintf("%v", nama))
