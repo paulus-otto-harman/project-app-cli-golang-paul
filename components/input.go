@@ -4,13 +4,19 @@ import (
 	"fmt"
 )
 
-func Input(params map[string]interface{}) (interface{}, error) {
-	fmt.Printf("%s ", params["label"])
+func Input(params ...map[string]interface{}) (interface{}, error) {
+	if len(params) > 0 {
+		if value, ok := params[0]["label"]; ok {
+			fmt.Printf("%s ", value)
+		}
 
-	var inputAngka int
-	if params["type"] == "number" {
-		_, err := fmt.Scanln(&inputAngka)
-		return inputAngka, err
+		if value, ok := params[0]["type"]; ok {
+			if value == "number" {
+				var inputAngka int
+				_, err := fmt.Scanln(&inputAngka)
+				return inputAngka, err
+			}
+		}
 	}
 
 	var inputTeks string

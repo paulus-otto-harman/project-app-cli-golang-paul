@@ -1,21 +1,30 @@
 package main
 
 import (
+	"fmt"
 	"project/components"
 	"project/views"
 	"project/views/penumpang"
 )
 
 func main() {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println(err)
+		}
+	}()
+
 	var menuItem interface{}
 	var err error
 loop:
 	for {
+
 		RenderView(views.Menu{})
-		menuItem, err = components.Input(map[string]interface{}{"type": "number", "label": "Masukkan Pilihan Anda :"})
+		menuItem, err = components.Input(map[string]interface{}{"type": "number", "label": "Masukkan Pilihan Anda [1-6] :"})
+
 		switch {
 		case err != nil:
-			continue
+			panic("System mendeteksi terjadinya kesalahan. Aplikasi dihentikan")
 		case menuItem == 6:
 			break loop
 		case menuItem == 5:

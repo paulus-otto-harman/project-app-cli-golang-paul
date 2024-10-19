@@ -16,10 +16,10 @@ loop:
 	for {
 		utils.ClearScreen()
 		fmt.Println("*** Tambah penumpang ***")
-		nama, _ := components.Input(map[string]interface{}{"label": "Nama"})
-		identitas, _ := components.Input(map[string]interface{}{"label": "Identitas"})
-		tujuan, _ := components.Input(map[string]interface{}{"label": "Tujuan"})
-		kelas, _ := components.Input(map[string]interface{}{"label": "Kelas"})
+		nama, _ := components.Input(map[string]interface{}{"label": fmt.Sprintf("%-15s:", "Nama")})
+		identitas, _ := components.Input(map[string]interface{}{"label": fmt.Sprintf("%-15s:", "Identitas")})
+		tujuan, _ := components.Input(map[string]interface{}{"label": fmt.Sprintf("%-15s:", "Tujuan")})
+		kelas, _ := components.Input(map[string]interface{}{"label": fmt.Sprintf("%s\n%s\n%s\n%-15s:", "Kelas", "[1]ekonomi", "[2]bisnis", "[3]eksekutif")})
 
 		penumpang := models.Penumpang{}
 		penumpang.IsiNama(fmt.Sprintf("%v", nama))
@@ -28,7 +28,7 @@ loop:
 		penumpang.IsiKelas(fmt.Sprintf("%v", kelas))
 		penumpang.Tambah()
 
-		menuItem, err := components.Input(map[string]interface{}{"type": "number", "label": "Tekan Enter untuk menambahkan lagi atau Masukkan [0] untuk Kembali Ke Menu Utama"})
+		menuItem, err := components.Input(map[string]interface{}{"type": "number", "label": fmt.Sprintf("%s\n%s", "Penumpang berhasil ditambahkan", "Tekan Enter untuk menambahkan lagi atau Masukkan [0] untuk Kembali Ke Menu Utama")})
 		fmt.Println(menuItem, err)
 		switch {
 		case err != nil:

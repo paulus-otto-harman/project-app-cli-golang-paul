@@ -15,5 +15,7 @@ func (pindahKelas PindahKelas) Render() {
 
 	fmt.Println("*** Pindah Gerbong (Ekonomi/Eksekutif/Bisnis) ***")
 	identitas, _ := components.Input(map[string]interface{}{"label": "Nomor Identitas"})
-	penumpang.CariIdentitas(fmt.Sprintf("%v", identitas))
+	p := penumpang.CariIdentitas(fmt.Sprintf("%v", identitas))
+	fmt.Println(p)
+	components.Input(map[string]interface{}{"label": "test"})
 }
