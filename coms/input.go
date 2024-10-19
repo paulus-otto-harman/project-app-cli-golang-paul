@@ -5,7 +5,7 @@ import (
 )
 
 func Input(params map[string]interface{}) (interface{}, error) {
-	fmt.Printf("%s : ", params["label"])
+	fmt.Printf("%s ", params["label"])
 
 	var inputAngka int
 	if params["type"] == "number" {
