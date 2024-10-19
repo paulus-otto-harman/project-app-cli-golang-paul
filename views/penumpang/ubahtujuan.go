@@ -15,5 +15,9 @@ func (ubahTujuan UbahTujuan) Render() {
 
 	fmt.Println("*** Ubah Destinasi ***")
 	identitas, _ := components.Input(map[string]interface{}{"label": "Nomor Identitas"})
-	penumpang.CariIdentitas(fmt.Sprintf("%v", identitas))
+	row, err := penumpang.CariIdentitas(fmt.Sprintf("%v", identitas))
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(row)
 }

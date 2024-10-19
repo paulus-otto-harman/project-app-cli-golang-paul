@@ -15,6 +15,7 @@ func (d DaftarPenumpang) Render() {
 	const WidthIdentitas = 40
 	const WidthTujuan = 30
 	const WidthKelas = 30
+	Kelas := [3]string{"Ekonomi", "Bisnis", "Eksekutif"}
 
 	utils.ClearScreen()
 	// header
@@ -24,7 +25,7 @@ func (d DaftarPenumpang) Render() {
 
 	// body
 	for _, penumpang := range models.DaftarPenumpang {
-		fmt.Printf("%s%-*s%s%-*s%s%-*s%s%-*s%s\n", "│ ", WidthNama, penumpang.Nama(), "│ ", WidthIdentitas, penumpang.Identitas(), "│ ", WidthTujuan, penumpang.Tujuan(), "│ ", WidthKelas, penumpang.Kelas(), "│")
+		fmt.Printf("%s%-*s%s%-*s%s%-*s%s%-*s%s\n", "│ ", WidthNama, penumpang.Nama(), "│ ", WidthIdentitas, penumpang.Identitas(), "│ ", WidthTujuan, penumpang.Tujuan(), "│ ", WidthKelas, Kelas[penumpang.Kelas()-1], "│")
 	}
 
 	// footer

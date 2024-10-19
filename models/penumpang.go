@@ -1,9 +1,12 @@
 package models
 
+import "errors"
+
 var DaftarPenumpang []Penumpang
 
 type Penumpang struct {
-	nama, identitas, tujuan, kelas string
+	nama, identitas, tujuan string
+	kelas                   int
 }
 
 func (penumpang *Penumpang) Nama() string {
@@ -18,7 +21,7 @@ func (penumpang *Penumpang) Tujuan() string {
 	return penumpang.tujuan
 }
 
-func (penumpang *Penumpang) Kelas() string {
+func (penumpang *Penumpang) Kelas() int {
 	return penumpang.kelas
 }
 
@@ -37,7 +40,7 @@ func (penumpang *Penumpang) IsiTujuan(tujuan string) string {
 	return penumpang.tujuan
 }
 
-func (penumpang *Penumpang) IsiKelas(kelas string) string {
+func (penumpang *Penumpang) IsiKelas(kelas int) int {
 	penumpang.kelas = kelas
 	return penumpang.kelas
 }
@@ -47,13 +50,13 @@ func (penumpang *Penumpang) Tambah() string {
 	return "Tiket Berhasil Terjual"
 }
 
-func (penumpang *Penumpang) CariIdentitas(identitas string) int {
+func (penumpang *Penumpang) CariIdentitas(identitas string) (int, error) {
 	for i, penumpang := range DaftarPenumpang {
 		if identitas == penumpang.identitas {
-			return i
+			return i, nil
 		}
 	}
-	return -1
+	return -1, errors.New("Identitas tidak ditemukan")
 }
 
 func (penumpang *Penumpang) Hapus(index int) string {
