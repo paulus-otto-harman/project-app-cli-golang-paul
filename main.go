@@ -1,33 +1,33 @@
 package main
 
 import (
-	"project/coms"
-	"project/controllers"
+	"project/components"
 	"project/views"
+	"project/views/penumpang"
 )
-
-func xmain() {
-	views.TambahBuku()
-}
 
 func main() {
 	var menuItem interface{}
 	var err error
 loop:
 	for {
-		views.HomeMenu()
-		menuItem, err = coms.Input(map[string]interface{}{"type": "number", "label": "Masukkan Pilihan Anda :"})
+		RenderView(views.Menu{})
+		menuItem, err = components.Input(map[string]interface{}{"type": "number", "label": "Masukkan Pilihan Anda :"})
 		switch {
 		case err != nil:
 			continue
-		case menuItem == 4:
+		case menuItem == 6:
 			break loop
+		case menuItem == 5:
+			RenderView(penumpang.DaftarPenumpang{})
+		case menuItem == 4:
+			RenderView(penumpang.PindahKelas{})
 		case menuItem == 3:
-			controllers.TampilkanBuku()
+			RenderView(penumpang.UbahTujuan{})
 		case menuItem == 2:
-			controllers.HapusBuku()
+			RenderView(penumpang.Pembatalan{})
 		case menuItem == 1:
-			controllers.TambahBuku()
+			RenderView(penumpang.Penjualan{})
 		}
 	}
 }

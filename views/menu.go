@@ -2,11 +2,17 @@ package views
 
 import "project/utils"
 
-func HomeMenu() {
+type Menu struct {
+}
+
+func (menu Menu) Render() {
 	utils.ClearScreen()
-	println("*** MENU UTAMA ***")
-	println("[1] Tambah Buku")
-	println("[2] Hapus Buku")
-	println("[3] Tampilkan Buku")
-	println("[4] Keluar dari Program")
+	println("*** PENJUALAN TIKET KERETA API ***")
+	println("[1] Penjualan")
+	println("[2] Pembatalan")
+	println("[3] Ubah Tujuan")
+	println("[4] Pindah Kelas")
+	println("[5] Daftar Penumpang")
+	println("[6] Keluar dari Program")
+
 }
