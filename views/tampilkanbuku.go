@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func Tampilkanbuku() {
+func TampilkanBuku() {
 	const WidthJudul = 60
 	const WidthPenulis = 60
 	const WidthIsbn = 30

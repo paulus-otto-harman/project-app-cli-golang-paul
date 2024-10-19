@@ -5,7 +5,7 @@ import (
 )
 
 func TambahBuku() {
-
+	views.TambahBuku()
 }
 
 func HapusBuku() {
@@ -13,5 +13,5 @@ func HapusBuku() {
 }
 
 func TampilkanBuku() {
-	views.Tampilkanbuku()
+	views.TampilkanBuku()
 }

@@ -7,7 +7,7 @@ import (
 )
 
 func xmain() {
-	views.Tampilkanbuku()
+	views.TambahBuku()
 }
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 loop:
 	for {
 		views.HomeMenu()
-		menuItem, _ = coms.Input(map[string]interface{}{"type": "number", "label": "Masukkan Pilihan Anda :"})
+		menuItem, err = coms.Input(map[string]interface{}{"type": "number", "label": "Masukkan Pilihan Anda :"})
 		switch {
 		case err != nil:
 			continue
